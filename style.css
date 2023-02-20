@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Copse&display=swap');
+body{
+    height: 100vh;
+    background-color: #2f2f2f;
+    font-family: 'Copse', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+}
+
+
+.container{
+    position: relative;
+    width: 400px;
+    height: 50px;
+    background: #fff;
+    padding: 28px 32px;
+    border-radius: 25px;
+    font-family: 'Copse', serif;
+    transition: 0.5s ease-in-out;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5); ;
+}
+
+.search{
+    background-color: white;
+    border-radius: 25px;
+    margin: 0 auto;
+
+}
+
+.search i{
+    margin-left: 10px;
+    margin-right: 20px;
+    font-size: 26px;
+    
+}
+
+.search input{
+    border: none;
+    outline: none;
+    background-color: white;
+    width: 275px;
+    height: 45px;
+    font-size: 26px;
+    font-family: 'Copse', serif;
+}
+
+.search input::placeholder{
+    color: #333;
+}
+
+.search button{
+    border: none;
+    outline: none;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 26px;
+    margin-left: 10px;
+}
+
+.search button:hover{
+    background-color: #333;
+    color: white;
+}
+
+.fourohfour{
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weather{
+    width: 100%;
+    height: 100vh;
+    display: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
