@@ -119,6 +119,7 @@ body{
     font-size: 30px;
     color: black;
     text-align: center;
+    text-transform: capitalize;
 }
 
 .weather .temp{
