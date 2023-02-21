@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-const search = document.querySelector('.search');
+const search = document.querySelector('.search button');
 const weather = document.querySelector('.weather');
 const details = document.querySelector('.details');
 const fourohfour = document.querySelector('.fourohfour');
@@ -8,13 +8,17 @@ search.addEventListener('click', () => {
     const APIkey = 'c8cad648cf2669b39d83e3f1aa8e75a3'
     const city = document.querySelector('.search input').value;
     if (city === '' ){
+        fourohfour.style.display = 'none';
+        weather.style.display = 'none';
+        details.style.display = 'none';
+        container.style.height = '50px';
         return;
     }
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}
     &appid=${APIkey}`).then(response => response.json()).then
     (json => {
-        if(json.code === 404){
+        if(json.cod === '404'){
             container.style.height = '600px';
             weather.style.display = 'none';
             details.style.display = 'none';
@@ -28,12 +32,12 @@ search.addEventListener('click', () => {
         const image = document.querySelector('.weather img');
         const temp = document.querySelector('.weather .temp');
         const desc = document.querySelector('.weather .desc');
-        const humidity = document.querySelector('.details .humidity');
+        const humidity = document.querySelector('.details .hum');
         const wind = document.querySelector('.details .wind');
 
         switch(json.weather[0].main){
             case 'Clear':
-                image.src = 'clear.png';
+                image.src = 'sunny.png';
                 break;
             case 'Clouds':
                 image.src = 'cloud.png';
@@ -46,10 +50,10 @@ search.addEventListener('click', () => {
                 break;
         }
         
-        temp.innerHTML = '${parseInt(json.main.temp}<span>°C</span>';
+        temp.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
         desc.innerHTML = json.weather[0].description;
-        humidity.innerHTML = '${json.main.humidity}<span>%</span>';
-        wind.innerHTML = '${json.wind.speed}<span>km/h</span>';
+        humidity.innerHTML = `${json.main.humidity}<span>%</span>`;
+        wind.innerHTML = `${json.wind.speed}<span>km/h</span>`;
 
         weather.style.display = 'flex';
         details.style.display = 'flex';
