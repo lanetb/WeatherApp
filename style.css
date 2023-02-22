@@ -50,6 +50,7 @@ body{
     height: 45px;
     font-size: 26px;
     font-family: 'Copse', serif;
+    text-transform: capitalize; 
 }
 
 .search input::placeholder{

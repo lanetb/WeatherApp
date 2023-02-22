@@ -5,6 +5,16 @@ const details = document.querySelector('.details');
 const fourohfour = document.querySelector('.fourohfour');
 
 search.addEventListener('click', () => {
+    getWeather();
+});
+
+search.addEventListener('keypress', (event) => {
+    if (event.keyCode === 13) {
+        getWeather();
+    }
+});
+
+function getWeather(){
     const APIkey = 'c8cad648cf2669b39d83e3f1aa8e75a3'
     const city = document.querySelector('.search input').value;
     if (city === '' ){
@@ -53,7 +63,7 @@ search.addEventListener('click', () => {
         temp.innerHTML = `${parseInt(json.main.temp)}<span>°F</span>`;
         desc.innerHTML = json.weather[0].description;
         humidity.innerHTML = `${json.main.humidity}<span>%</span>`;
-        wind.innerHTML = `${json.wind.speed}<span>km/h</span>`;
+        wind.innerHTML = `${json.wind.speed}<span>mph</span>`;
 
         weather.style.display = 'flex';
         details.style.display = 'flex';
@@ -61,7 +71,6 @@ search.addEventListener('click', () => {
         details.classList.add('fade-in');
         container.style.height = '600px';
         
-
     });
-
-});
+}
+    
